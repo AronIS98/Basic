@@ -1,16 +1,21 @@
 import string
 name=input()
-skra=open(name,"r")
+try:
+    skra=open(name,"r")
+except FileNotFoundError:
+    print(("File {} not found!").format(name))
 def scrambl(texti):
     nota=""
     utkoma=""
     inserted=""
+    punct=""
     place=0
+    
     if texti[(len(texti)-1)] in string.punctuation:
         punct=texti[len(texti)-1]
-        nota=texti[0:len(texti)-2]
-    else:
         nota=texti[0:len(texti)-1]
+    else:
+        nota=texti[0:len(texti)]
     byrjun = nota[0]
     lok=nota[len(nota)-1]
     midja=nota[1:len(nota)-1]
@@ -24,4 +29,8 @@ def scrambl(texti):
         reps-=1
         place+=2
     return (byrjun+utkoma+inserted+lok+punct)
-print(scrambl("research,"))
+outcome=""
+for lines in skra:
+    lines=lines.rstrip()
+    outcome+=(scrambl(lines)+" ")
+print(outcome)
