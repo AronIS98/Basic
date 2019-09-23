@@ -10,7 +10,8 @@ def open_file():
         print(("File {} not found!").format(name))
 
 def scramble_middle(texti):
-    """A function that "scrambles" words by swapping adjacent characters from left to right, but leaves the first and last character untouched"""
+    """A function that "scrambles" words by swapping adjacent characters from left to right, 
+        but leaves the first and last character untouched"""
     shuffled_str = ""
     punct = ""
     final_char = ""
@@ -22,7 +23,6 @@ def scramble_middle(texti):
     else:
         str_cleaned = texti
 
-
     first_char = str_cleaned[0]
     middle = str_cleaned[1:-1]
     reps = len(middle)//2
@@ -32,7 +32,7 @@ def scramble_middle(texti):
             final_char = str_cleaned[-1]
         else:
             final_char=str_cleaned[-2::]
-
+    #A loop in which the scrambling it self occurs:
     while reps>0:
         letter_1 = middle[(0 + place)]
         letter_2 = middle[(1 + place)]
