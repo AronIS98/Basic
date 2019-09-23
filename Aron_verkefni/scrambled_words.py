@@ -1,5 +1,5 @@
 import string
-name=input()
+name=input("Enter name of file: ")
 try:
     skra=open(name,"r")
 except FileNotFoundError:
@@ -16,7 +16,10 @@ def scrambl(texti):
         nota=texti[0:len(texti)-1]
     else:
         nota=texti[0:len(texti)]
-    byrjun = nota[0]
+    if len(nota)>1:
+        byrjun = nota[0]
+    else:
+        byrjun = ""
     lok=nota[len(nota)-1]
     midja=nota[1:len(nota)-1]
     reps = len(midja)//2
