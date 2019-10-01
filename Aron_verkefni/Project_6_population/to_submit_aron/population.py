@@ -8,25 +8,28 @@ def read_file():
     except FileNotFoundError:
         print("Filename {} not found!".format(file_name))
 
-def file_to_list(file_to_read): #comment more
+def file_to_list(file_to_read):
     """Recives a file and creates a nested list"""
 
     nested_list = []
     first_line = file_to_read.readline()
-    first_line = first_line.split()
-    rows = len(first_line)
-    for lines in file_to_read:
-        lines = lines.split()
+    first_line_list = first_line.split()
+    
 
-        if len(lines) > rows:
-            lines[0] = lines[0] + " " + lines[1]
-            del lines[1]
+    exp_len = len(first_line_list)
+    for line in file_to_read:
+        line_list = line.split()
 
-        for ind in range (1,len(lines)):
-            lines[ind] = int(lines[ind])
+        #if statement that deals with names that consist of two words:
+        if len(line_list) > exp_len:
+            line_list[0] += (" " + line_list[1])
+            del line_list[1]
 
-        nested_list.append(lines)
-    nested_list.insert(0,first_line)
+        for years in range (1,len(line_list)):
+            line_list[years] = int(line_list[years])
+
+        nested_list.append(line_list)
+    nested_list.insert(0,first_line_list)
     return nested_list
 
 def what_year(the_list):
@@ -53,15 +56,15 @@ def min_max_of_year(the_list,position):
         name = the_list[states][0]
         pop_and_name_tuple = (population,name)
         final_list.append(pop_and_name_tuple)
-
+    print(final_list)
     max_tuple = max(final_list)
     min_tuple = min(final_list)
-    return min_tuple,max_tuple
+    return min_tuple, max_tuple
     
-#The main code
+#The main code:
 target_file = read_file()
 nested_list = file_to_list(target_file)
 year_index = what_year(nested_list)
 lowest, highest = min_max_of_year(nested_list, year_index)
-print("Minimum: " , lowest)
-print("Maximum: " , highest)
+print("Minimum: {}".format(lowest))
+print("Maximum: {}".format(highest))
