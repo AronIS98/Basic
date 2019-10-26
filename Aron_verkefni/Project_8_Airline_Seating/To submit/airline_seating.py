@@ -54,7 +54,7 @@ def print_seats(any_list):
         second_batch.strip()
         print("{:>2}   {}{}{}".format(number+1,first_batch,ISLE,second_batch))
 
-def book_seat(some_list,reff,order_tuple,total_booked):
+def book_seat(some_list,the_refference,order_tuple,total_booked):
     """Books seat if the seat exists and is unbooked. If it doesnt, tells you if selected seat
     is already booked or invalid."""
     again = True
@@ -72,7 +72,7 @@ def book_seat(some_list,reff,order_tuple,total_booked):
             valid_choice = True
             total_booked += 1
 
-        elif order_tuple[1] in reff[row_index]:#If the seat is not available but was available in the original list it must be booked.
+        elif seat in the_refference[row_index]:#If the seat is not available but was available in the original list it must be booked.
             print("That seat is taken!")
         else:
             print("Seat number is invalid!")#If the seat is not available and was never created to begin with, the seat number is invalid. 
@@ -95,7 +95,7 @@ def main():
 
     first,second = user_input()
     the_list,total_space = setup(first,second)#This list will be modified.
-    refference_list = setup(first,second)
+    refference_list,total_space = setup(first,second)
     reference_tuple = tuple(refference_list) #Only for refference, not intended to be modified.
 
     print_seats(the_list)
