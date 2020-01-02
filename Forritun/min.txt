@@ -1,0 +1,18 @@
+Name: Green Book, Category: Biography
+Name: The God, Category: Crime
+Name: The Godfather, Category: Crime
+Name: Schindler's List, Category: Biography
+Name: Schindler's List, Category: Drama
+Catalog Films:
+        Name: Green Book, Category: Biography
+        Name: The Godfather, Category: Crime
+        Name: Schindler's List, Category: Drama
+Catalog Films:
+        Name: Green Book, Category: Biography
+        Name: Schindler's List, Category: Drama
+Catalog Favorite Movies:
+        Name: Green Book, Category: Biography
+        Name: Schindler's List, Category: Drama
+Name: Green Book, Category: Biography
+None
+Catalog Favorite Movies:
